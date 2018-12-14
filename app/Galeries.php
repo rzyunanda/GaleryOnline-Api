@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class Galeries extends Model
 {
+	
 	protected $appends = ['gambar_url'];
 
     public function getGambarUrlAttribute()
