@@ -18,8 +18,10 @@ class GaleriesController extends Controller
 			//  'galery' => $galery
 			//  ], 200);
 
-			$galery = Galeries::paginate(15);
-			return response->json($galery);    
+			$galery = Galeries::select('id','nama','lokasi')->get();
+
+
+			return response()->json(['data'=>$galery]);    
 		}
 
 
