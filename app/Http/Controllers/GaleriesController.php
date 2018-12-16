@@ -18,7 +18,7 @@ class GaleriesController extends Controller
 			//  'galery' => $galery
 			//  ], 200);
 
-			$galery = Galeries::select('id','nama','lokasi')->get();
+			$galery = Galeries::select('id','nama','lokasi','gambar')->get();
 
 
 			return response()->json(['data'=>$galery]);    
