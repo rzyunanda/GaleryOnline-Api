@@ -19,7 +19,7 @@ class GaleriesController extends Controller
 			//  ], 200);
 
 			$galery = Galeries::paginate(15);
-			return GaleryResource::collection($galery);    
+			return response->json($galery);    
 		}
 
 
