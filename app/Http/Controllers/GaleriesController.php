@@ -18,8 +18,8 @@ class GaleriesController extends Controller
 			//  'galery' => $galery
 			//  ], 200);
 
-			$galery = Galeries::all();
-			return $galery;   
+			$galery = Galeries::paginate(15);
+			return GaleryResource::collection($galery);    
 		}
 
 
