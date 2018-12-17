@@ -73,7 +73,24 @@ class GalerySeeder extends Seeder
             'lat' => '123',
             'lng' => '123',
           ],
-
+           [
+            'nama' => 'Rumah Godang Sungai Baringin',
+            'lokasi' => 'Payakumbuh',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'rumahgodang.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+          [
+            'nama' => 'Pantai Gondoriah',
+            'lokasi' => 'Payakumbuh',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'pantaigondoriah.png',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
 
 
 
