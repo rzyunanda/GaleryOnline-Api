@@ -17,8 +17,11 @@ class CreateGaleriesTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('lokasi');
-          	$table->string('tanggal');
+          	$table->date('tanggal');
             $table->string('gambar');
+            $table->string('deskripsi');
+            $table->string('lat');
+            $table->string('lng');
             $table->timestamps();
         });
     }

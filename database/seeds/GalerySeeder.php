@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Galeries;
+use Carbon\Carbon;
 //use Storage;
 
 class GalerySeeder extends Seeder
@@ -14,17 +15,70 @@ class GalerySeeder extends Seeder
      */
     public function run()
     {
-      Galeries::truncate();
-      $faker = Faker::create();
-      // membuat 18 record dummy
-      for ($i = 0; $i < 9; $i++) {
-          Galeries::create([
-              'gambar' => $faker->image(storage_path('app/public'),
-              $width = 640, $height = 480, 'people', false),
-              'lokasi' => $faker->realText($maxNbChars = 25, $indexSize = 2),
-              'tanggal' => $faker->dateTime($max = 'now', $timezone = null),
-              'nama' => $faker->name
-          ]);
-      }
+        DB::table('galeries')->insert([
+          [
+           
+            'nama' => 'Harau',
+            'lokasi' => 'Payakumbuh',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'harau.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+          [
+             
+            'nama' => 'Kelok 9',
+            'lokasi' => 'Payakumbuh',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'kelok9.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+          [
+             
+            'nama' => 'Angso Duo',
+            'lokasi' => 'Pariaman',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'angsoduo.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+          [
+            'nama' => 'Mesjid Raya Sumbar',
+            'lokasi' => 'Padang',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'mesjidraya.jpg',
+            'deskripsi' => 'Mesjid Raya Sumbar Merupakan ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+          [
+            'nama' => 'Pantai Air Manis',
+            'lokasi' => 'Padang',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'pantaiairmanis.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+           [
+            'nama' => 'Air Terjun Lembah Anai',
+            'lokasi' => 'Tanah Datar',
+            'tanggal'=> Carbon::now(),
+            'gambar' => 'lembahanai.jpg',
+            'deskripsi' => 'Sebuah Objek wisata alam ...',
+            'lat' => '123',
+            'lng' => '123',
+          ],
+
+
+
+
+
+      ]);
+      
     }
 }
