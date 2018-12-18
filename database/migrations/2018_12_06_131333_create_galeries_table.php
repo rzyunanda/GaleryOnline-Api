@@ -17,9 +17,9 @@ class CreateGaleriesTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('lokasi');
-          	$table->date('tanggal');
+          	// $table->date('tanggal');
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->string('lat');
             $table->string('lng');
             $table->timestamps();
