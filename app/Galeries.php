@@ -14,4 +14,14 @@ class Galeries extends Model
     {
     	return url(Storage::url($this->gambar));
     }
+
+     public $fillable = [
+        'nama',
+        'lokasi',
+        'gambar',
+        'deskripsi',
+        'lat',
+        'lng'
+        
+    ];
 }

@@ -52,13 +52,14 @@ class GaleriesController extends Controller
 
 	function store(Request $request){
 
-        if (isset($request->photo_path)) {
-            $picture = base64_decode($request->photo_path);
-            Log::info($request->photo_path);
+        if (isset($request->gambar)) {
+            $picture = base64_decode($request->gambar);
+           // Log::info($request->gambar);
             $filename = str_random().'.'.'jpeg';
-            $path = public_path().'/photo/'.$filename;
+            $path = storage_path().'/app/public/'.$filename;
             file_put_contents($path,$picture);
             $galery=Galeries::create($request->except('gambar')+['gambar' => $filename]);
+
         }else{
             $galery=Galeries::create($request->all());
         }
