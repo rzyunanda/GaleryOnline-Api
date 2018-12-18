@@ -50,9 +50,21 @@ class GaleriesController extends Controller
  //    }
 
 
-	public function destroy(){
+	function store(Request $request){
 
-	}
+        if (isset($request->photo_path)) {
+            $picture = base64_decode($request->photo_path);
+            Log::info($request->photo_path);
+            $filename = str_random().'.'.'jpeg';
+            $path = public_path().'/photo/'.$filename;
+            file_put_contents($path,$picture);
+            $galery=Galeries::create($request->except('gambar')+['gambar' => $filename]);
+        }else{
+            $galery=Galeries::create($request->all());
+        }
+        
+        return response()->json($galery,201);
+    }
 
 
 }
