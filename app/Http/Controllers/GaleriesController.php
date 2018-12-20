@@ -11,15 +11,8 @@ class GaleriesController extends Controller
 {
 
 	public function index(){
-			// $galery = Galeries::all();
-			 
-			//  return response()->json([
-			//  'pesan' => 'berhasil',
-			//  'galery' => $galery
-			//  ], 200);
 
 			$galery = Galeries::select('id','nama','lokasi','gambar','deskripsi','lat','lng')->get();
-
 
 			return response()->json(['data'=>$galery]);    
 		}
@@ -32,29 +25,11 @@ class GaleriesController extends Controller
 
 	}
 
-	// function postFoto(Request $request){
-
- //        $gambar = explode(',',$request->photo_path);
- //        $satu = explode('/',$gambar[0]);
- //        $dua = explode(';',$satu[1]);
- //        $extention = $dua[0];
- //        $picture = base64_decode($gambar[1]);
- //        Log::info($gambar[1]);
- //        $filename = str_random().'.'.$extention;
- //        $path = public_path().'/photo/'.$filename;
- //        file_put_contents($path,$picture);
-
- //        $galeries=Galeries::insert($request->except('photo_path')+['photo_path' => $filename]);
- //        return response()->json($galeries,201);
-
- //    }
-
-
 	function store(Request $request){
 
         if (isset($request->gambar)) {
             $picture = base64_decode($request->gambar);
-           // Log::info($request->gambar);
+           //Log::info($request->gambar);
             $filename = str_random().'.'.'jpeg';
             $path = storage_path().'/app/public/'.$filename;
             file_put_contents($path,$picture);
